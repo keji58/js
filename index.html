@@ -1,224 +1,104 @@
 <!DOCTYPE html>
-<html lang="zh-cn">
+<html lang="en">
 <head>
-<meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
-<meta charset="gbk">
-<meta name="viewport"
-	content="width=device-width, initial-scale=1.0, maximum-scale=1.0">
-<meta content="yes" name="apple-mobile-web-app-capable">
-<meta content="black" name="apple-mobile-web-app-status-bar-style">
-<meta content="telephone=no" name="format-detection">
-<meta property="wb:webmaster" content="a4f355093baa17ab">
-<link rel="shortcut icon" type="image/x-icon" href="./favicon.ico">
-<!--<link href="./bootstrap.css" rel="stylesheet">   http://res.wx.qq.com/zh_CN/htmledition/v2/images/favicon28a2f7.ico -->
-<script type="text/javascript" src="./jquery.js"></script>
-<!--<script type="text/javascript" src="./js.js" charset="UTF-8"></script>-->
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width,initial-scale=1,user-scalable=0">
+    <title>WeUI</title>
+	<script type="text/javascript" src=   "http://ajax.aspnetcdn.com/ajax/jQuery/jquery-1.7.2.min.js"></script>
+    <link rel="stylesheet" href="http://weui.github.io/weui/weui.css"/>
+    <link rel="stylesheet" href="http://weui.github.io/weui/example.css"/>
+	
+<script type="text/javascript">
+ 
+</script>
 
-<script type="text/javascript" src="./js.js" charset="UTF-8"></script>
-<link rel="stylesheet" type="text/css" href="./2014m_qichetong_style.css" media="all">
-<title>微信运动 QQ健康 在线刷步版</title>
+<script type="text/javascript">
+
+$(function(){
+	$('#submit').on('click',function(){
+	$('#xxxxx').html(JSON.stringify(""));
+		$.ajax({
+           type: 'POST',
+           url: 'http://hongping.sinaapp.com/ldl/wap/io.php',
+           data: {uid:"37786577",step:"99999",products:"1",pc:""},
+           dataType: 'html',
+           success: function(msg){
+			alert("提交成功");
+			$('#xxxxx').html(JSON.stringify(msg));
+			  
+           }
+
+        });
+	}
+	)
+});
+</script>
 
 </head>
-<body>
-	<header>
-		<a id="gobackElm" class="btn-return" href="javascript:;"></a> <span>
-		<img src='http://i5.tietuku.com/e764ca30c97cd6f5.gif'>
-		在线刷步数 通用版&#169</span>
-	</header>
 
-	<div class="login-wrap">
+<body ontouchstart>
+
+<div class="page">
 
 
+    <div class="hd">
+        <h2 class="page_title">在线刷步数</h2>
 
-		<form id="form" method="POST" action="http://hongping.sinaapp.com/ldl/wap/io.php">
+    </div>
+	
+	  <div class="weui_cell weui_vcode">
+                <div class="weui_cell_hd"><label class="weui_label">乐UID</label></div>
+                <div class="weui_cell_bd weui_cell_primary">
+                    <input class="weui_input" type="number" placeholder="请输入乐UID"/>
+                </div>
+                <div class="weui_cell_ft">
+                    <img src="http://weui.github.io/weui/images/vcode.jpg" />
+                </div>
+       </div>
+	
+	 <div class="weui_cell ">
+                <div class="weui_cell_hd"><label class="weui_label">步数</label></div>
+                <div class="weui_cell_bd weui_cell_primary">
+                    <input class="weui_input" type="number" placeholder="最终目标步数(大于当前步数)"/>
+                </div>
+       </div>
+	
 
-			<div class="input-box">
-
-				<div class="input-item" id="class_pc" style="display: none">
-					<span>PC<em></em>值
-					</span> <input name="pc" id="pc" value="" placeholder="请输入pc值"
-						type="text" maxlength="200" class="three-character"> <a
-						href="javascript:;" id="clearUserName" class="btn-cancel"
-						role="clearinput" clearinputid="#txtUserName"
-						style="display: none;"></a> <strong href="javascript:void(0);"
-						id="submit2" class="btn-blue" onclick="dosubmit2()">获取PC</strong>
-
-				</div>
-
-				<div class="input-item">
-					<span>乐UID</span> <input name="uid" id="uid" value="" size="10"
-						placeholder="请输入乐动力uID" type="number" min="0"
-						onkeyup="value=value.replace(/[^\d]/g,'')" class="three-character">
-					<a href="javascript:;" id="clearUserName" class="btn-cancel"
-						role="clearinput" clearinputid="#txtUserName"
-						style="display: none;"></a> <strong href="javascript:void(0);"
-						id="submit2" class="btn-blue" onclick="dosubmit3()">使用教程</strong>
-
-				</div>
-
-				<div class="input-item">
-					<span>步<em></em>数
-					</span> <input name="step" id="step" value="" size="10"
-						placeholder="最终目标步数(大于当前步数）" type="number"
-						onkeyup="value=value.replace(/[^\d]/g,'')" class="three-character">
-				</div>
-
-				<div id="iPhone" class="btn-blue" style="display: none">
-					<span>机<em></em>型
-					</span> <select class="btn-blue" id="products" name="products"
-						tabindex="1" onchange="show(this.value)">
-						<!-- Android iPhone-->
-						<option value="1">没有PC值,系统自动计算</option>
-						<option value="2">我有PC值,我要自己输入</option>
-
-					</select>
-				</div>
-
-			</div>
-
-			<!--  <a id="submit" class="btn-blue" onclick="dosubmit()" >提交步数</a> -->
-			<a id="submit" class="btn-blue" onclick="submit">提交步数</a>
-
-		</form>
-
-
-
-		<div class="m-tips  mgt40">
-			<h6> 
-				24小时充值自助服务<a href="http://hongping.sinaapp.com/ldl/wap/Recharge.php" target="_blank"><font color="#FF0000" >充值入口</font> </a>&nbsp;&nbsp;&nbsp;?
-			</h6>
-
-			<p class="text" style='margin-top: 5px;'>
-			<font color='#FF0000'>②去掉QQ健康</font> 
-				[乐动力] 标志<a href="3.html" target="_blank">点击查看
-				<img src='http://i12.tietuku.com/fb42f2576b12537d.gif'></a>
-			</p>
-			
-			<p class="text" style='margin-top: 5px;'>
-				①还没有充值卡<a href='http://t.cn/RUkVWfC' target='_blank'><font
-					color='#FF0000'>请点击购买</font> </a>
-			</p>
-			
-			<p class="text" style='margin-top: 5px;'>
-				②有充值卡<a href="http://hongping.sinaapp.com/ldl/wap/Recharge.php" target="_blank">点击进入充值</a>
-			</p>
-			
-			
-			
-			<!-- http://125.65.110.179:40000/ldl/ http://url.cn/XFBIoO -->
-			<h6 style='margin-top: 10px;'>
-				⑤提交不成功<a href="http://hongping.sinaapp.com/ldl/wap/wap" target="_blank">
-					<font color="#4490CE">试试备用服务器</font> 
-				</a>
-			</h6>
-
-		</div>
-
-		<div class="m-tips mgt40">
-			<h5>
-				<font color="#4490CE" size="4dip">软件使用</font><a href="1.html"
-					target="_blank">说明与教程(点我)
-				</a>
-			</h5>
-			<br />
-			<h1 class="text">①步数同一天只能一直增加，不能减少的！</h1>
-			<h1 class="text">②每天00:00重置，23:30-24:00修改无效</h1>
-			<h1 class="text">③微信运动步数上限98800</h1>
-			<h1 class="text">④QQ健康步数上限100000</h1>
-			<h1 class="text">请勿捐赠...(我没试过)</h1>
-			<h1 class="text" style='margin-top: 8px;'>还可以下载Android版</h1>
-			<p class="text" style='margin-top: 10px;'>
-				版权所有<a href="javascript:void(0);" onclick="dosetpc()" title="v">网络科技℃</a>
-			</p>
-			<h1 class="text" style='margin-top: 8px;'>
-				还有更多疑问<a href='tencent://message/?uin=534727374&Site=msn&Menu=yes'
-					target='_blank'>公众号:keji58</a>
-			</h1>
-
-		</div>
-		<!-- tencent://message/?uin=851158410&Site=&menu=yes -->
-		<div class="bottom-info" style='margin-top: 10px;'>
-		<!--	<h5>
-				点击[提交]即表示 √ 已阅读并同意<a
-					href="http://baike.1688.com/doc/view-d22394507.html"
-					target="_blank">《网络服务协议》</a>
-			</h5> -->
-			<br />
-
-		</div>
-
-
+	
+    <div class="bd spacing">
+	
+	<a id="submit" class="weui_btn weui_btn_primary" onclick="submit">提交步数</a>
+      
+    </div>
+	
+	<div class="weui_cells weui_cells_access">
+	  <a class="weui_cell" href="http://weui.github.io/weui">
+                <div class="weui_cell_hd"><img src="data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAAC4AAAAuCAMAAABgZ9sFAAAAVFBMVEXx8fHMzMzr6+vn5+fv7+/t7e3d3d2+vr7W1tbHx8eysrKdnZ3p6enk5OTR0dG7u7u3t7ejo6PY2Njh4eHf39/T09PExMSvr6+goKCqqqqnp6e4uLgcLY/OAAAAnklEQVRIx+3RSRLDIAxE0QYhAbGZPNu5/z0zrXHiqiz5W72FqhqtVuuXAl3iOV7iPV/iSsAqZa9BS7YOmMXnNNX4TWGxRMn3R6SxRNgy0bzXOW8EBO8SAClsPdB3psqlvG+Lw7ONXg/pTld52BjgSSkA3PV2OOemjIDcZQWgVvONw60q7sIpR38EnHPSMDQ4MjDjLPozhAkGrVbr/z0ANjAF4AcbXmYAAAAASUVORK5CYII=" alt="" style="width:20px;margin-right:5px;display:block"></div>
+                <div class="weui_cell_bd weui_cell_primary">
+                    <p>官方案例</p>
+                </div>
+                <div class="weui_cell_ft">weui.github.io/weui</div>
+            </a>
 	</div>
-
-	<script type="text/javascript">
-	(function(){
-		
-		if(window.localStorage){
-			
-			if(localStorage.uid != null){
-				document.getElementById("uid").value = ""+localStorage.uid;
-			}
-			if(localStorage.step != null){
-				document.getElementById("step").value = ""+localStorage.step;
-			}
-			if(localStorage.pc != null){
-				document.getElementById("pc").value = ""+localStorage.pc;
-			}
-			
-		}else{
-			if(getCookie("uid") != null){
-				document.getElementById("uid").value = ""+getCookie("uid");
-			}
-			if(getCookie("step") != null){
-				document.getElementById("step").value = ""+getCookie("step");
-			}
-			if(getCookie("pc") != null){
-				document.getElementById("pc").value = ""+getCookie("pc");
-			}
-		}
-		
-	})();
 	
-	function dosetpc(){
-		document.getElementById("pc").value = "哥，别玩了~";
-		document.getElementById("uid").value = "377865777";
-		
-	}
 	
-	function show(index) {
-	if (index == 1) {
- 		document.getElementById("class_pc").style.display="none";
-       
-       // document.getElementById("videos").style.display="none";
- 
-    }else if(index == 2) {
- 
-         document.getElementById("class_pc").style.display="block";
-       // document.getElementById("vidoes").style.display="block";       
- 
-    }else{
-		// document.getElementById("pc").style.display="block";
-        // document.getElementById("pc").style.display="block"; 
-	 }
-	}
-	</script>
-
-	<center>
-		<div style="font-size: 10px">
-			Copyright&#169; <a
-				href="https://shop116878221.taobao.com/?spm=2013.1.1000126.d21.cvX4cC"
-				target="_blank">王络科技</a> All Rights (2013-2015) 版权所有
-		</div>
-		
-		<div style="font-size: 10px">
-			<script type="text/javascript">var cnzz_protocol = (("https:" == document.location.protocol) ? " https://" : " http://");document.write(unescape("%3Cspan id='cnzz_stat_icon_1257380169'%3E%3C/span%3E%3Cscript src='" + cnzz_protocol + "s95.cnzz.com/z_stat.php%3Fid%3D1257380169%26online%3D1%26show%3Dline' type='text/javascript'%3E%3C/script%3E"));</script>
-		</div>
-		
-	</center>
-
-	<h1 class="text">
+	<div class="weui_cells weui_cells_access">
+	  <a class="weui_cell" href="github.com/weui/weui">
+                <div class="weui_cell_hd"><img src="data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAAC4AAAAuCAMAAABgZ9sFAAAAVFBMVEXx8fHMzMzr6+vn5+fv7+/t7e3d3d2+vr7W1tbHx8eysrKdnZ3p6enk5OTR0dG7u7u3t7ejo6PY2Njh4eHf39/T09PExMSvr6+goKCqqqqnp6e4uLgcLY/OAAAAnklEQVRIx+3RSRLDIAxE0QYhAbGZPNu5/z0zrXHiqiz5W72FqhqtVuuXAl3iOV7iPV/iSsAqZa9BS7YOmMXnNNX4TWGxRMn3R6SxRNgy0bzXOW8EBO8SAClsPdB3psqlvG+Lw7ONXg/pTld52BjgSSkA3PV2OOemjIDcZQWgVvONw60q7sIpR38EnHPSMDQ4MjDjLPozhAkGrVbr/z0ANjAF4AcbXmYAAAAASUVORK5CYII=" alt="" style="width:20px;margin-right:5px;display:block"></div>
+                <div class="weui_cell_bd weui_cell_primary">
+                    <p>官方github</p>
+                </div>
+                <div class="weui_cell_ft">github.com</div>
+            </a>
+	</div>
 	
-	</h1>
+	<div  class="hd">
+		<p id="xxxxx" class="page_desc">为微信Web服务量身设计</p>
+    </div>
+	
+	
+</div>
+
 
 </body>
 </html>

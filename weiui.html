@@ -1,3 +1,4 @@
+
 <!DOCTYPE html>
 <html lang="en">
 <head>
@@ -16,7 +17,7 @@
 
 $(function(){
 	$('#submit').on('click',function(){
-	$('#xxxxx').html(JSON.stringify(""));
+	$('#xxxxx').html('');
 		$.ajax({
            type: 'POST',
            url: 'http://hongping.sinaapp.com/ldl/wap/io.php',
@@ -54,12 +55,18 @@ $(function(){
                 <div class="weui_cell_ft">
                     <img src="http://weui.github.io/weui/images/vcode.jpg" />
                 </div>
+				<div class="weui_cell_ft">
+					<a href="javascript:;" class="weui_btn weui_btn_mini weui_btn_primary">使用教程</a>
+                </div>
        </div>
 	
 	 <div class="weui_cell ">
                 <div class="weui_cell_hd"><label class="weui_label">步数</label></div>
                 <div class="weui_cell_bd weui_cell_primary">
                     <input class="weui_input" type="number" placeholder="最终目标步数(大于当前步数)"/>
+                </div>
+				<div class="weui_cell_ft">
+					<a href="javascript:;" class="weui_btn weui_btn_mini weui_btn_default">按钮</a>
                 </div>
        </div>
 	
